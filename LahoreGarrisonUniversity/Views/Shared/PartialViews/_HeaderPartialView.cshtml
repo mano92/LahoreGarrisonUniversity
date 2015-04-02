@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    var userName = User.Identity.GetUserName();
+}
+
+<header class="navbar navbar-inverse" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-cog"></i>
+            </button>
+            <a href="@Url.Action("index","Home")" class="navbar-brand navbar-brand-img">
+                <h4 class="">Lahore Garrison Univeristy</h4>
+            </a>
+        </div> <!-- /.navbar-header -->
+        <nav class="collapse navbar-collapse" role="navigation">
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown navbar-profile">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-parent="#leftMenu"
+                               href="@Url.Action("Index", "Manage")">
+                                @userName
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="@Url.Action("Inbox", "Manage", routeValues: null)">
+                                        <i class="fa fa-user"></i>
+                                        &nbsp;&nbsp;My Profile
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                                        <i class="fa fa-sign-out"></i>
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@Url.Action("FrontEnd", "Home")">
+                            <i class="fa fa-angle-double-left"></i>
+                            &nbsp;Back to Home
+                        </a>
+                    </li>
+                </ul>
+            }
+
+        </nav>
+    </div> <!-- /.container -->
+</header>

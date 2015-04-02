@@ -1,0 +1,12 @@
+﻿@model IEnumerable<LahoreGarrisonUniversity.Models.News>
+
+<section class="widget has-divider">
+    <h3 class="title">Job Vacancies</h3>
+    <ul class="job-list custom-list-style">
+        @foreach (var item in Model)
+        {
+            <li><i class="fa fa-caret-right"></i><a href="#">@item.Title</a></li>
+        }
+    </ul>
+    <a class="btn btn-theme" href="">Find out more</a>
+</section>

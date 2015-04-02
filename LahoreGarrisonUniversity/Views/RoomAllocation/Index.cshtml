@@ -1,0 +1,78 @@
+﻿@model IEnumerable<LahoreGarrisonUniversity.Models.RoomAllocation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="span12">
+        <div class="portlet">
+            <h4 class="portlet-title">
+                <u>Room Allocation List</u>
+            </h4>
+            <!-- /widget-header -->
+            <div class="portlet-body">
+                <p class="btn btn-default">
+                    @Html.ActionLink("Allocate Room", "Create")
+                </p>
+                <p class="btn btn-default">
+                    @Html.ActionLink("Room Allocating Information", "RoomAllocationView")
+                </p>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Department.Code)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Course.Code)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Room.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Day.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StartTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EndTime)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Department.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Course.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Room.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Day.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndTime)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /widget-content -->
+        </div>
+    </div>
+</div>

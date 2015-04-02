@@ -1,0 +1,51 @@
+﻿@model LahoreGarrisonUniversity.Models.LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Log in";
+}
+<div class="account-body">
+    <h3>Welcome back.</h3>
+    <h5>Please sign in to get access.</h5>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form account-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Username" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group clearfix">
+            <div class="pull-left">
+                <label class="checkbox-inline">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    <small>Remember me</small>
+                </label>
+            </div>
+
+            <div class="pull-right">
+                <small>@Html.ActionLink("Forget your password?", "ForgotPassword")</small>
+            </div>
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">
+                Signin &nbsp; <i class="fa fa-play-circle"></i>
+            </button>
+        </div> <!-- /.form-group -->
+    }
+</div> <!-- /.account-body -->
+
+<div class="account-footer">
+    <p>
+        Don't have an account? &nbsp;
+        @Html.ActionLink("Create an Account!", "Register")
+    </p>
+</div> <!-- /.account-footer -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<LahoreGarrisonUniversity.Models.Testimonial>
+
+<section class="widget row-divider">
+    <h3 class="title">Testimonials</h3>
+    <div id="testimonials-carousel" class="testimonials-carousel carousel slide">
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                    <blockquote class="quote">
+                        <p>
+                            <i class="fa fa-quote-left"></i>
+                            @item.Review
+                        </p>
+                    </blockquote>
+                    <div class="row">
+                        <p class="people col-md-8 col-sm-3 col-xs-8"><span class="name">@item.Name</span><br /></p>
+                        <img class="profile col-md-4 pull-right" src="@item.MediaUrl" alt="" />
+                    </div>
+                </div>
+            }
+            <div class="carousel-controls">
+                <a class="prev" href="#testimonials-carousel" data-slide="prev"><i class="fa fa-caret-left"></i></a>
+                <a class="next" href="#testimonials-carousel" data-slide="next"><i class="fa fa-caret-right"></i></a>
+            </div><!--//carousel-controls-->
+        </div><!--//testimonials-carousel-->
+    </div>
+</section>

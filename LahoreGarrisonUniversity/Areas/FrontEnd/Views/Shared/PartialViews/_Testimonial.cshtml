@@ -1,0 +1,16 @@
+﻿@*@model IEnumerable<LahoreGarrisonUniversity.Models.Testimonial>
+           
+@foreach (var item in Model)
+{
+    <div class="item">
+        <blockquote class="quote">
+            <p><i class="fa fa-quote-left"></i>
+                @item.Review
+            </p>
+        </blockquote>
+        <div class="row">
+            <p class="people col-md-8 col-sm-3 col-xs-8"><span class="name">@item.Name</span><br /></p>
+            <img class="profile col-md-4 pull-right" src="@item.MediaUrl" alt="" />
+        </div>
+    </div>
+}*@

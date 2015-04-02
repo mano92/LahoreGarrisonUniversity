@@ -1,0 +1,122 @@
+﻿@model LahoreGarrisonUniversity.Models.FrontEndCourse
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FrontEndCourse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditHourTheory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditHourTheory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditHourPractical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditHourPractical)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseStructure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseStructure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecommendedBooks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecommendedBooks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrerequsiteCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrerequsiteCourse)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

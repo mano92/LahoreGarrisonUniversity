@@ -1,0 +1,12 @@
+﻿@if (Request.IsAuthenticated && User.IsInRole("student"))
+{
+    @Html.Partial("~/Views/Shared/PartialViews/_StudentNavigationPartialView.cshtml")
+}
+else if (Request.IsAuthenticated && User.IsInRole("teacher"))
+{
+    @Html.Partial("~/Views/Shared/PartialViews/_TeacherNavigationPartialView.cshtml")
+}
+else if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    @Html.Partial("~/Views/Shared/PartialViews/_AdminNavigationPartialView.cshtml")
+}
