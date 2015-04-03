@@ -30,25 +30,8 @@
             </article>
             <!--//page-content-->
             <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
-                <section class="widget has-divider">
-                    <h3 class="title">Job Vacancies</h3>
-                    <ul class="job-list custom-list-style">
-                        <li><i class="fa fa-caret-right"></i><a href="#">Learning Support Assistant</a></li>
-                        <li><i class="fa fa-caret-right"></i><a href="#">Lecturer - Business Studies</a></li>
-                        <li><i class="fa fa-caret-right"></i><a href="#">Lecturer - Computer Science</a></li>
-                        <li><i class="fa fa-caret-right"></i><a href="#">Administrative Assistant</a></li>
-                    </ul>
-                    <a class="btn btn-theme" href="jobs.html">Find out more</a>
-                </section>
-                
-                <section class="widget">
-                    <h3 class="title">Contact</h3>
-                    <p>Sector C, DHA Phase-VI
-
-                        Lahore</p>
-                    <p class="tel"><i class="fa fa-phone"></i>Tel: 042-37181821-22</p>
-                    <p class="email"><i class="fa fa-envelope"></i>Email: <a href="#">info@lgu.edu.pk</a></p>
-                </section>
+                @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Jobs.cshtml")
+                @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Address.cshtml")
                 <!--//widget-->
             </aside>
         </div>
