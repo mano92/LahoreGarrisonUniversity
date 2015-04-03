@@ -2,13 +2,43 @@
     ViewBag.Title = "Scholarships";
 }
 
-<h2>Scholarships</h2>
-<div class="details col-md-10 col-sm-9 col-xs-8">
-    <h3 class="title"><a href="#">Scholarship</a></h3>
-    <p>various scholarships are available in LGU.</p>
-    <p><a class="btn btn-theme" href="@Url.Action("DownloadScholarship", "Widgets")"><i class="fa fa-download"></i>Download now</a></p>
-</div>
-<div class="details col-md-10 col-sm-9 col-xs-8">
-    <h3 class="title"><a href="#">Scholarship Description</a></h3>
-    <p><a class="btn btn-theme" href="@Url.Action("DownloadScholarshipDescription", "Widgets")"><i class="fa fa-download"></i>Download now</a></p>
-</div>
+<div class="page-wrapper">
+    <div class="page-content">
+        <div class="row page-row">
+            <article class="welcome col-md-8 col-sm-7">
+                <h3 class="title">Welcome to Lahore Garrison University</h3>
+                <p>
+                    <img class="img-responsive" src="~/Content/images/750x300-about.jpg" alt="" />
+                </p>
+                <p>
+                    A limited number of scholarships on the basis of poverty­cum-merit are awarded under this scheme. Scholarships are awarded by a Scholarship Award Committee. Comprising of the following:
+                </p>
+                <ul class="custom-list-style">
+                    <li><i class="fa fa-check"></i>Dean, Faculty of Engineering Convener</li>
+                    <li><i class="fa fa-check"></i>Chairman of the Department Member</li>
+                    <li><i class="fa fa-check"></i>Director Finance Member</li>
+                    <li><i class="fa fa-check"></i>Provost Member</li>
+                    <li><i class="fa fa-check"></i>Incharge of Student Affairs</li>
+                </ul>
+                <p>
+                    Ten students in each of the following Departments of the University run on rationalized fee structure shall be awarded Scholarships of Rs.21,000/- per semester on merit at the time of admission for first semester. The Scholarships shall be awarded inaffordablity/merit basis. Scholarships holders will have to pay normal fee/user charges of the University.
+                </p>
+                <div class="details col-md-10 col-sm-9 col-xs-8">
+                    <h3 class="title"><a href="#">Scholarship</a></h3>
+                    <p>various scholarships are available in LGU.</p>
+                    <p><a class="btn btn-theme" href="@Url.Action("DownloadScholarship", "Widgets")"><i class="fa fa-download"></i>Download now</a></p>
+                </div>
+                <div class="details col-md-10 col-sm-9 col-xs-8">
+                    <h3 class="title"><a href="#">Scholarship Description</a></h3>
+                    <p><a class="btn btn-theme" href="@Url.Action("DownloadScholarshipDescription", "Widgets")"><i class="fa fa-download"></i>Download now</a></p>
+                </div>
+            </article>
+            <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+                @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Jobs.cshtml")
+                @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_EnquireAboutUs.cshtml")
+            </aside>
+        </div>
+        <!--//page-row-->
+    </div>
+    <!--//page-content-->
+</div><!--//page-->

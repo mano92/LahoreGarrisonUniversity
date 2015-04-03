@@ -71,7 +71,7 @@ namespace LahoreGarrisonUniversity.Models
     // Configure the RoleManager used in the application. RoleManager is defined in the ASP.NET Identity core assembly
     public class ApplicationRoleManager : RoleManager<IdentityRole>
     {
-        public ApplicationRoleManager(IRoleStore<IdentityRole,string> roleStore)
+        public ApplicationRoleManager(IRoleStore<IdentityRole, string> roleStore)
             : base(roleStore)
         {
         }
@@ -103,16 +103,18 @@ namespace LahoreGarrisonUniversity.Models
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     // This example shows you how to create a new database if the Model changes
-    public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext> 
+    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
-        protected override void Seed(ApplicationDbContext context) {
+        protected override void Seed(ApplicationDbContext context)
+        {
             InitializeIdentityForEF(context);
             SeedData(context);
             base.Seed(context);
         }
 
         //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
-        public static void InitializeIdentityForEF(ApplicationDbContext db) {
+        public static void InitializeIdentityForEF(ApplicationDbContext db)
+        {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
             const string name = "admin@example.com";
@@ -121,13 +123,15 @@ namespace LahoreGarrisonUniversity.Models
 
             //Create Role Admin if it does not exist
             var role = roleManager.FindByName(roleName);
-            if (role == null) {
+            if (role == null)
+            {
                 role = new IdentityRole(roleName);
                 var roleresult = roleManager.Create(role);
             }
 
             var user = userManager.FindByName(name);
-            if (user == null) {
+            if (user == null)
+            {
                 user = new ApplicationUser { UserName = name, Email = name };
                 var result = userManager.Create(user, password);
                 result = userManager.SetLockoutEnabled(user.Id, false);
@@ -135,7 +139,8 @@ namespace LahoreGarrisonUniversity.Models
 
             // Add user admin to Role Admin if not already added
             var rolesForUser = userManager.GetRoles(user.Id);
-            if (!rolesForUser.Contains(role.Name)) {
+            if (!rolesForUser.Contains(role.Name))
+            {
                 var result = userManager.AddToRole(user.Id, role.Name);
             }
         }
@@ -295,9 +300,9 @@ namespace LahoreGarrisonUniversity.Models
             context.Testimonial.Add(
                 new Testimonial
                 {
-                    Name = "Azeem",
+                    Name = "Awais",
                     Review = "Good University",
-                    MediaUrl = "",
+                    MediaUrl = "/Content/FrontEnd/images/testimonials/profile-3.png",
                     CreatedDate = DateTime.Now,
                     IsApproved = 1
                 });
@@ -305,19 +310,9 @@ namespace LahoreGarrisonUniversity.Models
             context.Testimonial.Add(
                 new Testimonial
                 {
-                    Name = "Azeem 01",
-                    Review = "Good University sdkfj sdjlkfjsdlflksd lk",
-                    MediaUrl = "",
-                    CreatedDate = DateTime.Now,
-                    IsApproved = 1
-                });
-
-            context.Testimonial.Add(
-                new Testimonial
-                {
-                    Name = "Azeem",
-                    Review = "Good University sadlkfjdsk jsdlkfj lksjdlfkj sdlkjf",
-                    MediaUrl = "",
+                    Name = "Sidra",
+                    Review = "Always highlight the strengths or the good experience you had using a service or product.",
+                    MediaUrl = "/Content/FrontEnd/images/testimonials/profile-2.png",
                     CreatedDate = DateTime.Now,
                     IsApproved = 1
                 });
@@ -326,8 +321,18 @@ namespace LahoreGarrisonUniversity.Models
                 new Testimonial
                 {
                     Name = "Azeem",
-                    Review = "Good University sdsfgsdafdsf'sdlk flkdsf",
-                    MediaUrl = "",
+                    Review = "While giving a testimonial make sure you give many indications that you are authentic. This can be done by providing some way for people to contact you to verify if you are really the one who provided the testimonial.",
+                    MediaUrl = "/Content/FrontEnd/images/testimonials/profile-1.png",
+                    CreatedDate = DateTime.Now,
+                    IsApproved = 1
+                });
+
+            context.Testimonial.Add(
+                new Testimonial
+                {
+                    Name = "Azeem",
+                    Review = "It should be short and sweet. Even if you like everything about a service or a product, just write about the most important aspects of the service or a product. Come straight to the point when you are writing testimonials.",
+                    MediaUrl = "/Content/FrontEnd/images/testimonials/profile-3.png",
                     CreatedDate = DateTime.Now,
                     IsApproved = 1
                 });
@@ -448,7 +453,7 @@ namespace LahoreGarrisonUniversity.Models
                     Title = "Addmissions",
                     Description = "Addmissions Open now",
                     CreatedAt = DateTime.Now,
-                    MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                    MediaUrl = "/Content/FrontEnd/images/news/news-thumb-1.jpg",
                     UserName = "admin"
                 }
                 );
@@ -458,7 +463,7 @@ namespace LahoreGarrisonUniversity.Models
                     Title = "Addmissions",
                     Description = "Addmissions Open now",
                     CreatedAt = DateTime.Now,
-                    MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                    MediaUrl = "/Content/FrontEnd/images/news/news-thumb-2.jpg",
                     UserName = "admin"
                 }
                 );
@@ -468,7 +473,7 @@ namespace LahoreGarrisonUniversity.Models
                     Title = "Addmissions",
                     Description = "Addmissions Open now",
                     CreatedAt = DateTime.Now,
-                    MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                    MediaUrl = "/Content/FrontEnd/images/news/news-thumb-3.jpg",
                     UserName = "admin"
                 }
                             );
@@ -478,7 +483,7 @@ namespace LahoreGarrisonUniversity.Models
                                 Title = "Addmissions",
                                 Description = "Addmissions Open now",
                                 CreatedAt = DateTime.Now,
-                                MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-4.jpg",
                                 UserName = "admin"
                             }
                             );
@@ -488,7 +493,7 @@ namespace LahoreGarrisonUniversity.Models
                                 Title = "Addmissions",
                                 Description = "Addmissions Open now",
                                 CreatedAt = DateTime.Now,
-                                MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-5.jpg",
                                 UserName = "admin"
                             }
                             );
@@ -498,7 +503,7 @@ namespace LahoreGarrisonUniversity.Models
                                 Title = "Addmissions",
                                 Description = "Addmissions Open now",
                                 CreatedAt = DateTime.Now,
-                                MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-6.jpg",
                                 UserName = "admin"
                             }
                             );
@@ -508,7 +513,7 @@ namespace LahoreGarrisonUniversity.Models
                                 Title = "Addmissions",
                                 Description = "Addmissions Open now",
                                 CreatedAt = DateTime.Now,
-                                MediaUrl = "~/Content/FrontEnd/images/news/news-thumb-4.jpg",
+                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-4.jpg",
                                 UserName = "admin"
                             }
                             );
@@ -519,7 +524,7 @@ namespace LahoreGarrisonUniversity.Models
 
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) : 
+        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) :
             base(userManager, authenticationManager) { }
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)

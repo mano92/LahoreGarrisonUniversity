@@ -1,5 +1,83 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "News and Events";
 }
 
-<h2>News and Events Index</h2>
+<div class="page-content">
+    <div class="row page-row">
+        <div id="event-items" class="events-wrapper col-md-8 col-sm-7">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //debugger;
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "/FrontEnd/Home/GetEvents/",
+        data: "{}",
+        dataType: "json",
+        success: function (data) {
+            debugger;
+            $.each(data, function(index, item) {
+                //debugger;
+                //now you can access properties using dot notation
+                $('#event-items').append('<article class="events-item page-row has-divider clearfix">' +
+                    '<div class="date-label-wrapper col-md-1 col-sm-2"> ' +
+                    '<p class="date-label">' +
+                    '<span class="month">' + GetMonth(new Date(parseInt(item.StartDate.substr(6)))) + '</span>' +
+                    '<span class="date-number">' + (new Date(parseInt(item.StartDate.substr(6)))).getDay() + '</span>' +
+                    '</p>' +
+                    '</div><!--//date-label-wrapper-->' +
+                    '<div class="details col-md-11 col-sm-10">' +
+                    '<h3 class="title">' + item.Title + '</h3>' +
+                    '<p class="meta"><span class="time"><i class="fa fa-clock-o"></i>' +
+                    (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 'am - ' +
+                    (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 2 + 'pm' +
+                    '</span>' +
+                    '<span class="location">' +
+                    '<i class="fa fa-map-marker"></i>' +
+                    '<a href="#">' + item.Location + '</a></span></p>' +
+                    '<p class="desc">' + item.Description + '</p>' +
+                    '</div></article>');
+            });
+        },
+        error: function(xhr, err) {
+            debugger;
+            alert("readyState: " + xhr.readyState + "\nstatus: " + xhr.status);
+            alert("responseText: " + xhr.responseText);
+        }
+    });
+
+    function GetMonth(d) {
+        //debugger;
+        var month = new Array();
+        month[0] = "JAN";
+        month[1] = "FEB";
+        month[2] = "MAR";
+        month[3] = "APR";
+        month[4] = "MAY";
+        month[5] = "JUN";
+        month[6] = "JUL";
+        month[7] = "AUG";
+        month[8] = "SEP";
+        month[9] = "OCT";
+        month[10] = "NOV";
+        month[11] = "DEC";
+        return month[d.getMonth()];
+    }
+
+    function GetDay(d) {
+        //debugger;
+        var weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+
+        return weekday[d.getDay()];
+    }
+</script>
