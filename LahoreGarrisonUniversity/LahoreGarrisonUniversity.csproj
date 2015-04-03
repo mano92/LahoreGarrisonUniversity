@@ -431,6 +431,24 @@
     <Content Include="Areas\FrontEnd\Views\Shared\Widgets\_Testimonial.cshtml" />
     <Content Include="Areas\FrontEnd\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\FrontEnd\Views\_ViewStart.cshtml" />
+    <Content Include="Content\documents\Fee-notice.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\documents\Fee-Schedule-1-1.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\documents\Imp-notice.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\documents\Route.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\documents\Scholarship-Description.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\documents\Scholarship.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\FrontEnd\admin\bootstrap-min.js" />
     <Content Include="Scripts\FrontEnd\admin\bootstrap.js" />

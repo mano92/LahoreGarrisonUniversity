@@ -1,10 +1,5 @@
 ﻿
-    @*<div class="col-md-4 news-item">
-        <h2 class="title"><a href="@Url.Action("NewsDetails", "Home", new { id = item.Id })">@item.Title</a></h2>
-        <p>@item.Description</p>
-        <a class="read-more" href="@Url.Action("NewsDetails", "Home", new { id = item.Id })">Read more<i class="fa fa-chevron-right"></i></a>
-        <img class="thumb" src="@item.MediaUrl" alt="" />
-    </div>*@
+    <div class="col-md-4 news-item"></div>
 
 
 <script type="text/javascript">
@@ -18,19 +13,12 @@
         success: function (data) {
             debugger;
             $.each(data, function(index, item) {
-                //debugger;
+                debugger;
                 //now you can access properties using dot notation
-                $('.event-item').append(
-
-                );
-                    '<p class="date-label">' +
-                    '<span class="month">' + GetMonth(new Date(parseInt(item.StartDate.substr(6)))) + '</span>' +
-                    '<span class="date-number">' + GetDay(new Date(parseInt(item.StartDate.substr(6)))) + '</span>' +
-                    '</p><div class="details"><h2 class="title">' + item.Title + '</h2>' +
-                    '<p class="time"><i class="fa fa-clock-o"></i>' + (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 'am - '
-                    + (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 2 + ' pm </p>' +
-                    '<p class="location"><i class="fa fa-map-marker"></i>' + item.Location + '</p>' +
-                    '</div>');
+                $('.news-item').append(
+                    '<h2 class="title"><a href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })' + item.Id+'">' + item.Title + '</a></h2><p>' +
+                    item.Description+ '</p><a class="read-more" href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })' + item.Id + 
+                    '">Read more<i class="fa fa-chevron-right"></i></a><img class="thumb" src="' + item.MediaUrl + '" alt="" />');
             });
         },
         error: function(xhr, err) {
@@ -39,36 +27,4 @@
             alert("responseText: " + xhr.responseText);
         }
     });
-
-    function GetMonth(d) {
-        //debugger;
-        var month = new Array();
-        month[0] = "January";
-        month[1] = "February";
-        month[2] = "March";
-        month[3] = "April";
-        month[4] = "May";
-        month[5] = "June";
-        month[6] = "July";
-        month[7] = "August";
-        month[8] = "September";
-        month[9] = "October";
-        month[10] = "November";
-        month[11] = "December";
-        return month[d.getMonth()];
-    }
-
-    function GetDay(d) {
-        //debugger;
-        var weekday = new Array(7);
-        weekday[0] = "Sunday";
-        weekday[1] = "Monday";
-        weekday[2] = "Tuesday";
-        weekday[3] = "Wednesday";
-        weekday[4] = "Thursday";
-        weekday[5] = "Friday";
-        weekday[6] = "Saturday";
-
-        return weekday[d.getDay()];
-    }
 </script>

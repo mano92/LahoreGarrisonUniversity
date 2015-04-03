@@ -17,12 +17,7 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            var viewModel = new HomePageViewModel();
-            //viewModel.Events = db.Event.Take(4).OrderByDescending(item => item.StartDate);
-            //viewModel.News = db.News.Take(6).OrderByDescending(item => item.CreatedAt);
-            //viewModel.Testimonial =
-            //    db.Testimonial.Take(4).Where(item => item.IsApproved == 1).OrderByDescending(item => item.CreatedDate);
-            return View(viewModel);
+            return View();
         }
 
         [AllowAnonymous]

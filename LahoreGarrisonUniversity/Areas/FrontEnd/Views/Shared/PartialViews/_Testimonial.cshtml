@@ -1,16 +1,31 @@
-﻿@*@model IEnumerable<LahoreGarrisonUniversity.Models.Testimonial>
-           
-@foreach (var item in Model)
-{
-    <div class="item">
-        <blockquote class="quote">
-            <p><i class="fa fa-quote-left"></i>
-                @item.Review
-            </p>
-        </blockquote>
-        <div class="row">
-            <p class="people col-md-8 col-sm-3 col-xs-8"><span class="name">@item.Name</span><br /></p>
-            <img class="profile col-md-4 pull-right" src="@item.MediaUrl" alt="" />
-        </div>
-    </div>
-}*@
+﻿
+<div id="testimonials-items" class="item"></div> 
+
+<script type="text/javascript">
+    //debugger;
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "/FrontEnd/Home/GetTestimonial/",
+        data: "{}",
+        dataType: "json",
+        success: function (data) {
+            debugger;
+            $.each(data, function(index, item) {
+                debugger;
+                //now you can access properties using dot notation
+                $('#testimonials-items').append(
+                     '<blockquote class="quote"><p><i class="fa fa-quote-left"></i>' +
+                        item.Review + '</p></blockquote><div class="row">' +
+                        '<p class="people col-md-8 col-sm-3 col-xs-8"><span class="name">' +
+                        item.Name +
+                        '</span><br /></p><img class="profile col-md-4 pull-right" src="' + item.MediaUrl + '" alt="" /></div>');
+            });
+        },
+        error: function(xhr, err) {
+            debugger;
+            alert("readyState: " + xhr.readyState + "\nstatus: " + xhr.status);
+            alert("responseText: " + xhr.responseText);
+        }
+    });
+</script>

@@ -95,7 +95,11 @@ namespace LahoreGarrisonUniversity.Models
 
         public static ApplicationDbContext Create()
         {
-            return new ApplicationDbContext();
+            //return new ApplicationDbContext()
+            var ctx = new ApplicationDbContext();
+            var runSeed =     ctx.Roles.AnyAsync();
+
+            return ctx;
         }
     }
 }
