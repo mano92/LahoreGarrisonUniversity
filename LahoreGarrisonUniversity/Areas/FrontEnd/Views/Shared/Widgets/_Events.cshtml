@@ -1,8 +1,8 @@
-﻿@model IEnumerable<LahoreGarrisonUniversity.Models.Event>
-
+﻿
 <section class="widget has-divider">
     <h3 class="title">Upcoming Events</h3>
-    @foreach (var item in Model)
+    <article id="event-items-list" class="events-item row page-row"></article>
+    @*@foreach (var item in Model)
     {
         <article class="events-item row page-row">
             <div class="date-label-wrapper col-md-3 col-sm-4 col-xs-4">
@@ -16,7 +16,7 @@
                 <p class="time text-muted">@item.StartDate.GetValueOrDefault().Hour am - @item.StartDate.GetValueOrDefault().Hour + 2 pm<br>@item.Location</p>
             </div><!--//details-->
         </article>
-    }
+    }*@
 </section>
 
 <script type="text/javascript">
@@ -32,15 +32,23 @@
             $.each(data, function(index, item) {
                 //debugger;
                 //now you can access properties using dot notation
-                $('.event-item').append(
+                $('#event-items-list').append(
+                    '<article class="events-item page-row has-divider clearfix">' +
+                    '<div class="date-label-wrapper col-md-1 col-sm-2">' +
                     '<p class="date-label">' +
-                    '<span class="month">' + GetMonth(new Date(parseInt(item.StartDate.substr(6)))) + '</span>' +
-                    '<span class="date-number">' + GetDay(new Date(parseInt(item.StartDate.substr(6)))) + '</span>' +
-                    '</p><div class="details"><h2 class="title">' + item.Title + '</h2>' +
-                    '<p class="time"><i class="fa fa-clock-o"></i>' + (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 'am - '
-                    + (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 2 + ' pm </p>' +
-                    '<p class="location"><i class="fa fa-map-marker"></i>' + item.Location + '</p>' +
-                    '</div>');
+                    '<span class="month">'+ GetMonth(new Date(parseInt(item.StartDate.substr(6)))) +'</span>' +
+                    '<span class="date-number">'+GetDay(new Date(parseInt(item.StartDate.substr(6))))+'</span>' +
+                    '</p>' +
+                    '</div><!--//date-label-wrapper-->' +
+                    '<div class="details col-md-11 col-sm-10">' +
+                    '<h3 class="title">' + item.Title + '</h3>' +
+                    '<p class="meta"><span class="time"><i class="fa fa-clock-o"></i>' +
+                    (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 'am - ' + (new Date(parseInt(item.StartDate.substr(6)))).getHours() + 2 + 'pm' +
+                    '</span>' +
+                    '<span class="location"><i class="fa fa-map-marker"></i><a href="#">' + item.Location +'</a></span></p>' +
+                    '<p class="desc">'+ item.Description +'</p>' +
+                    '</div><!--//details-->' +
+                    '</article>');
             });
         },
         error: function(xhr, err) {

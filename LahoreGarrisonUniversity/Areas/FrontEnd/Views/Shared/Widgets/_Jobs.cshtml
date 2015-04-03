@@ -3,10 +3,34 @@
 <section class="widget has-divider">
     <h3 class="title">Job Vacancies</h3>
     <ul class="job-list custom-list-style">
-        @foreach (var item in Model)
+        @*@foreach (var item in Model)
         {
             <li><i class="fa fa-caret-right"></i><a href="#">@item.Title</a></li>
-        }
+        }*@
     </ul>
     <a class="btn btn-theme" href="">Find out more</a>
 </section>
+
+<script type="text/javascript">
+    //debugger;
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "/FrontEnd/Home/GetJobs/",
+        data: "{}",
+        dataType: "json",
+        success: function (data) {
+            debugger;
+            $.each(data, function(index, item) {
+                debugger;
+                //now you can access properties using dot notation
+                $('.job-list').append('<li><i class="fa fa-caret-right"></i><a href="#">' + item.Title + '</a></li>');
+            });
+        },
+        error: function(xhr, err) {
+            debugger;
+            alert("readyState: " + xhr.readyState + "\nstatus: " + xhr.status);
+            alert("responseText: " + xhr.responseText);
+        }
+    });
+</script>

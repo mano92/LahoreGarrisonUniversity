@@ -50,14 +50,10 @@
             </div>
             <!--//team-wrapper-->
             <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
-                @*<section class="widget has-divider">
-                    <h3 class="title">Download Prospectus</h3>
-                    <p>Donec pulvinar arcu lacus, vel aliquam libero scelerisque a. Cras mi tellus, vulputate eu eleifend at, consectetur fringilla lacus. Nulla ut purus.</p>
-                    <a class="btn btn-theme" href="#"><i class="fa fa-download"></i>Download now</a>
-                </section>*@
                 @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_DownloadProspectus.cshtml")
                 <!--//widget-->
-                <section class="widget row-divider">
+                @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Testimonial.cshtml")
+                @*<section class="widget row-divider">
                     <h3 class="title">Student Testimonials</h3>
                     <div id="testimonials-carousel" class="testimonials-carousel carousel slide">
                         <div class="carousel-inner">
@@ -116,7 +112,7 @@
                         <!--//carousel-controls-->
                     </div>
                     <!--//testimonials-carousel-->
-                </section>
+                </section>*@
                 <!--//widget-->
             </aside>
         </div>

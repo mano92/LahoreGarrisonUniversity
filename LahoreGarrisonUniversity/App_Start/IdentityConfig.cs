@@ -103,7 +103,7 @@ namespace LahoreGarrisonUniversity.Models
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     // This example shows you how to create a new database if the Model changes
-    public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext> 
+    public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext> 
     {
         protected override void Seed(ApplicationDbContext context) {
             InitializeIdentityForEF(context);
@@ -342,7 +342,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
@@ -357,7 +357,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
@@ -372,7 +372,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
@@ -387,7 +387,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
@@ -402,7 +402,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
@@ -417,7 +417,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
@@ -432,7 +432,7 @@ namespace LahoreGarrisonUniversity.Models
                     StartDate = DateTime.Now,
                     MediaUrl = "",
                     CreatedAt = DateTime.Now,
-                    Description = "ABC",
+                    Description = "Orange Fire Production Is Back Again with Festival of colors Paint War 2 Be ready to go Crazy this Summer with the Colors Beat the Heat with Colorful Water Splashes Cover each other with the Colors of the Season Its Color Colors Colors Everywhere! We are Offering you Great entertainment & much more again & again!",
                     Duration = 2,
                     ForWhome = "students",
                     UserName = "Admin"
