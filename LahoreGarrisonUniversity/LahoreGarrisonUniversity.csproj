@@ -162,10 +162,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\LahoreGarrisonUniversity-2-1-alpha1.mdf" />
-    <Content Include="App_Data\LahoreGarrisonUniversity-2-1-alpha1_log.ldf">
-      <DependentUpon>LahoreGarrisonUniversity-2-1-alpha1.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\Admin\css\admin.css" />
     <Content Include="Content\Admin\css\bootstrap.min.css" />
     <Content Include="Content\Admin\css\flat.css" />
@@ -722,6 +718,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Areas\FrontEnd\Views\Default\" />
     <Folder Include="Content\FrontEnd\images\bg\" />
     <Folder Include="Content\FrontEnd\images\media\" />
