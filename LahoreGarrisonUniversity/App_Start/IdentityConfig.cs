@@ -103,7 +103,7 @@ namespace LahoreGarrisonUniversity.Models
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     // This example shows you how to create a new database if the Model changes
-    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
@@ -199,8 +199,8 @@ namespace LahoreGarrisonUniversity.Models
             context.Grades.Add(new Grade() { Name = "F" });
 
             initializeFrontEndCourse(context);
-            initializeTestimonial(context);
-            initializeEvents(context);
+            //initializeTestimonial(context);
+            //initializeEvents(context);
             //initializeNews(context);
 
             context.SaveChanges();

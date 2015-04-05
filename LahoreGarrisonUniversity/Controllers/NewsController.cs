@@ -89,7 +89,7 @@ namespace LahoreGarrisonUniversity.Controllers
         // POST: /News/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(News news)
+        public async Task<ActionResult> Edit(int id, News news)
         {
             if (ModelState.IsValid)
             {
@@ -108,6 +108,7 @@ namespace LahoreGarrisonUniversity.Controllers
                 }
                 news.CreatedAt = DateTime.Now;
                 news.UserName = User.Identity.Name;
+                news.Id = id;
                 db.Entry(news).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

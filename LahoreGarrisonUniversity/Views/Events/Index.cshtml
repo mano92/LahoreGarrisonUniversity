@@ -3,7 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .row {
+        display: table-row;
+    }
 
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    </style>
 <div class="row">
     <div class="span12">
         <div class="portlet">
@@ -44,40 +55,40 @@
                         <th>
                             @Html.DisplayNameFor(model => model.UserName)
                         </th>
-                        <th></th>
+                        <th style="width: 15%"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Title)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.ForWhome)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Location)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Duration)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.MediaUrl)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.StartDate)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.CreatedAt)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.UserName)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })

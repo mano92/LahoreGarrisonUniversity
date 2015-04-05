@@ -5,6 +5,26 @@ body {
     font-size: 13px;
 }
 
+.table {
+        margin: 0;
+        padding: 0;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 .fontawesome-icon-list {
     margin-top: 3em;
     margin-bottom: 3em;
@@ -1915,6 +1935,11 @@ h6,
     padding-bottom: 11px;
     border-top: none;
     border-bottom: 1px solid #ddd;
+    /**/
+    display:table-cell;
+        white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
 }
 
 .kv-key {

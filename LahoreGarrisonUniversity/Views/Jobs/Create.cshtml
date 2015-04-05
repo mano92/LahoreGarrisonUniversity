@@ -1,18 +1,15 @@
 ﻿@model LahoreGarrisonUniversity.Models.Job
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Add New Job";
 }
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Job</h4>
+        <h4>Add New Job</h4>
         <hr />
         @Html.ValidationSummary(true)
 
@@ -44,16 +41,16 @@
             @Html.LabelFor(model => model.Department, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Department, new SelectList(
-                  new List<Object>{ 
-                       new { value = 0 , text = "Computer Science"  },
-                       new { value = 1 , text = "Chemistry" },
-                       new { value = 1 , text = "Physics" },
-                       new { value = 1 , text = "Biology" },
-                       new { value = 2 , text = "Maths"}
+                  new List<Object>{
+                       new { value = "Computer Science" , text = "Computer Science"},
+                       new { value = "Chemistry", text = "Chemistry"},
+                       new { value = "Physics", text = "Physics"},
+                       new { value = "Biology", text = "Biology"},
+                       new { value = "Maths", text = "Maths"}
                     },
                   "value",
                   "text",
-                   2)))
+                   2))
                 @*@Html.EditorFor(model => model.Department)*@
                 @Html.ValidationMessageFor(model => model.Department)
             </div>
@@ -62,7 +59,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Location, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Location)
+                @Html.DropDownListFor(model => model.Location, new SelectList(
+                  new List<Object>{
+                       new { value = "Main Campus" , text = "Main Campus"  },
+                       new { value = "Jinnah Campus" , text = "Jinnah Campus" }
+                    },
+                  "value",
+                  "text",
+                   2))
                 @Html.ValidationMessageFor(model => model.Location)
             </div>
         </div>
@@ -88,29 +92,37 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.hours, new SelectList(
                   new List<Object>{
-                       new { value = 0 , text = "Full Time"  },
-                       new { value = 1 , text = "Part Time" }
+                       new { value = "Full Time" , text = "Full Time"  },
+                       new { value = "Part Time" , text = "Part Time" }
                     },
                   "value",
                   "text",
-                   2)))
+                   2))
                 @*@Html.EditorFor(model => model.hours)*@
                 @Html.ValidationMessageFor(model => model.hours)
             </div>
         </div>
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreatedAt, new { @Value = DateTime.Now, @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.CreatedAt)
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt, new { @Value = DateTime.Now, @disabled = "disabled" })
-                @Html.ValidationMessageFor(model => model.CreatedAt)
+                @Html.EditorFor(model => model.LastDate, new { @id="datepicker", @disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.LastDate)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ApplicationForm, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.ApplicationForm, new {type="file"})
+                @Html.TextBoxFor(model => model.ApplicationForm, new { type = "file" })
                 @Html.ValidationMessageFor(model => model.ApplicationForm)
             </div>
         </div>
@@ -118,7 +130,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmailToApply, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.EmailToApply, new {type="file"})
+                @Html.EditorFor(model => model.EmailToApply)
                 @Html.ValidationMessageFor(model => model.EmailToApply)
             </div>
         </div>

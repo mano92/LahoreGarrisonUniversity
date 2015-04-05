@@ -3,7 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .row {
+        display: table-row;
+    }
 
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 <div class="row">
     <div class="col-sm-6">
         <div class="portlet">
@@ -20,7 +31,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.UserName)
                         </th>
-                        <th>
+                        <th style="width: 40%">
 
                         </th>
                     </tr>
@@ -28,7 +39,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.UserName)
                             </td>
                             <td>

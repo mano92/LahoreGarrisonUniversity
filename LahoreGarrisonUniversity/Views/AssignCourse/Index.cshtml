@@ -3,6 +3,20 @@
 @{
     ViewBag.Title = "Assign Course";
 }
+<style>
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
+
 
 <div class="row">
     <div class="span12">
@@ -33,25 +47,25 @@
                         <th>
                             @Html.DisplayName("Course")
                         </th>
-                        <th></th>
+                        <th style="width: 15%"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Department.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Teacher.Name)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.CreditTaken)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.RemaingCredit)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Course.Code)
                             </td>
                             @*<td>

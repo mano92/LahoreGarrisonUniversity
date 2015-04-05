@@ -50,7 +50,7 @@ namespace LahoreGarrisonUniversity.Controllers
                 var photo = Request.Files[0];
                 if (photo != null && photo.ContentLength > 0)
                 {
-                    var allowedFileExtensions = new string[] {".doc"};
+                    var allowedFileExtensions = new string[] { ".doc", ".docx" };
                     if (!allowedFileExtensions.Contains(photo.FileName.Substring(photo.FileName.LastIndexOf('.'))))
                     {
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
@@ -93,14 +93,14 @@ namespace LahoreGarrisonUniversity.Controllers
         /// <returns>Task{ActionResult}.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Job job)
+        public async Task<ActionResult> Edit(int id, Job job)
         {
             if (ModelState.IsValid)
             {
                 var photo = Request.Files[0];
                 if (photo != null && photo.ContentLength > 0)
                 {
-                    var allowedFileExtensions = new string[] {".doc" };
+                    var allowedFileExtensions = new string[] {".doc", ".docx" };
                     if (!allowedFileExtensions.Contains(photo.FileName.Substring(photo.FileName.LastIndexOf('.'))))
                     {
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
@@ -111,8 +111,7 @@ namespace LahoreGarrisonUniversity.Controllers
                     job.ApplicationForm = fullPath;
                 }
                 job.CreatedAt = DateTime.Now;
-
-
+                job.Id = id;
                 db.Entry(job).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

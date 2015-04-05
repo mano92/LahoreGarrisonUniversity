@@ -11,6 +11,8 @@ namespace LahoreGarrisonUniversity.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Email Required!")]
+        [DataType(DataType.MultilineText)]
         [DisplayName("Review")]
         public string Review { get; set; }
 

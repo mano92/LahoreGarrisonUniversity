@@ -3,6 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 
 <div class="row">
     <div class="span12">
@@ -38,28 +50,28 @@
                         <th>
                             @Html.DisplayNameFor(model => model.EndTime)
                         </th>
-                        <th></th>
+                        <th style="width: 15%"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Department.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Course.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Room.Name)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Day.Name)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.StartTime)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.EndTime)
                             </td>
                             <td>

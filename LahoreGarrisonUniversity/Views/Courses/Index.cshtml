@@ -2,7 +2,18 @@
 
 @{
     ViewBag.Title = "Courses";
-}
+}<style>
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 
 <div class="row">
     <div class="span12">
@@ -38,31 +49,31 @@
                         <th>
                             @Html.DisplayNameFor(model => model.AssignTo)
                         </th>
-                        <th></th>
+                        <th style="width: 15%s"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.CourseDepartment.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.CourseSemester.Semestername)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Credit)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.AssignTo)
                             </td>
                             <td>

@@ -4,13 +4,11 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Event</h4>
         <hr />
@@ -35,7 +33,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ForWhome, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ForWhome)
+                @Html.DropDownListFor(model => model.ForWhome, new SelectList(
+                  new List<Object>{
+                       new { value = "Administration" , text = "Administration"},
+                       new { value = "Students", text = "Students"},
+                       new { value = "Teachers", text = "Teachers"}
+                    },
+                  "value",
+                  "text",
+                   2))
                 @Html.ValidationMessageFor(model => model.ForWhome)
             </div>
         </div>
@@ -59,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MediaUrl, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MediaUrl)
+                @Html.TextBoxFor(model => model.MediaUrl, new { type = "file" })
                 @Html.ValidationMessageFor(model => model.MediaUrl)
             </div>
         </div>
@@ -67,26 +73,26 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate)
+                @Html.TextBoxFor(model => model.StartDate, new { @id = "datepicker" })
                 @Html.ValidationMessageFor(model => model.StartDate)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt)
-                @Html.ValidationMessageFor(model => model.CreatedAt)
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreatedAt, new {@class="Datepicker"})
+                    @Html.ValidationMessageFor(model => model.CreatedAt)
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName)
-                @Html.ValidationMessageFor(model => model.UserName)
-            </div>
-        </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -102,4 +108,14 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Dob").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+
 }

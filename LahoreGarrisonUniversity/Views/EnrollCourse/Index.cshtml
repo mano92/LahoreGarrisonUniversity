@@ -3,6 +3,18 @@
 @{
     ViewBag.Title = "Enroll Course";
 }
+<style>
+.row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    </style>
 
 <div class="row">
     <div class="span12">
@@ -27,22 +39,22 @@
                         <th>
                             @Html.DisplayName("Enroll Date")
                         </th>
-                        <th></th>
+                        <th style="width: 15%"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Student.RegistrationId)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Course.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.EnrollDate)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.ActionLink("Delete", "Delete", new { id = item.EnrollCourseId })
                             </td>
                         </tr>

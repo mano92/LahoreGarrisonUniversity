@@ -3,7 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .row {
+        display: table-row;
+    }
 
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 <div class="row">
     <div class="span12">
         <div class="portlet">
@@ -38,31 +49,31 @@
                         <th>
                             @Html.DisplayNameFor(model => model.CreditTaken)
                         </th>
-                        <th></th>
+                        <th style="width: 15%"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.TeacherDepartment.Code)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.TeachersDesignations.DesignationName)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Address)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Email)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.Contact)
                             </td>
-                            <td>
+                            <td class="cell">
                                 @Html.DisplayFor(modelItem => item.CreditTaken)
                             </td>
                             <td>

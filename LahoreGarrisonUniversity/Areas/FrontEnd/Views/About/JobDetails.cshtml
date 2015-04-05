@@ -1,0 +1,40 @@
+﻿@model LahoreGarrisonUniversity.Models.Job
+
+@{
+    ViewBag.Title = "Job Details";
+}
+
+<div class="page-content">
+    <div class="row page-row">
+        <div class="jobs-wrapper col-md-8 col-sm-7">
+            <h3 class="title">@Html.DisplayFor(model => model.Title)</h3>
+            <div class="box box-border page-row">
+                <ul class="list-unstyled">
+                    <li><strong>Job Ref:</strong> @Html.DisplayFor(model => model.JobReference)</li>
+                    <li><strong>Department:</strong> @Html.DisplayFor(model => model.Department)</li>
+                    <li><strong>Location:</strong> @Html.DisplayFor(model => model.Location)</li>
+                    <li><strong>Salary:</strong> @Html.DisplayFor(model => model.MinimumSalary) - @Html.DisplayFor(model => model.MaximumSalary)</li>
+                    <li><strong>Hours:</strong> @Html.DisplayFor(model => model.hours)</li>
+                    <li><strong>Closing date:</strong>@Html.DisplayFor(model => model.LastDate)</li>
+                    <li><strong>Job Application Form:</strong> 
+                        <a href="@Url.Action("DownloadApplication", "Widgets", new { Id = Model.ApplicationForm.Split('/').Last() })">Download</a>
+                    </li>
+                </ul>
+            </div>
+            <p>
+                @Html.DisplayFor(model => model.Description)
+            </p>
+            <h4 class="text-highlight">How to apply</h4>
+            <p>
+                Please fill the downloaded application form and email that on following email with your cover letter. 
+                <a href="#">@Html.DisplayFor(model => model.EmailToApply)</a>
+            </p>
+
+        </div>
+        <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Jobs.cshtml")
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_EnquireAboutUs.cshtml")
+        </aside>
+    </div>
+</div>
+

@@ -45,11 +45,14 @@ namespace LahoreGarrisonUniversity.Models
         public int MaximumSalary { get; set; }
 
         [DisplayName("Job Type")]
-        public int hours { get; set; }
+        public string hours { get; set; }
 
         [DisplayName("CreatedAt")]
         public Nullable<System.DateTime> CreatedAt { get; set; }
-        
+
+        [DisplayName("CreatedAt")]
+        public Nullable<System.DateTime> LastDate { get; set; }
+
         [DisplayName("Application Form")]
         public string ApplicationForm { get; set; }
         

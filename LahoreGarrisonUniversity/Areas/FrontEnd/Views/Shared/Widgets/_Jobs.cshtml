@@ -1,7 +1,7 @@
 ﻿<section class="widget has-divider">
-    <h3 class="title">Job Vacancies</h3>
-    <ul id="job-list" class="job-list custom-list-style"></ul>
-    <a class="btn btn-theme" href="">Find out more</a>
+    <h3 class="title">Jobs at Lahore Garrison University</h3>
+    <ul id="job-list-widget" class="job-list custom-list-style"></ul>
+    <a class="btn btn-theme" href="@Url.Action("Jobs", "About")">Find out more</a>
 </section>
 
 <script type="text/javascript">
@@ -16,7 +16,9 @@
             debugger;
             $.each(data, function(index, item) {
                 debugger;
-                $('#job-list').append('<li><i class="fa fa-caret-right"></i><a href="#">' + item.Title + '</a></li>');
+                $('#job-list-widget').append('<li>' +
+                    '<i class="fa fa-caret-right"></i>' +
+                    '<a href="@Url.Action("JobDetails", "About", new { id = string.Empty })/' + item.Id + '">' + item.Title + '</a></li>');
             });
         },
         error: function(xhr, err) {

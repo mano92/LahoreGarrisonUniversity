@@ -23,6 +23,15 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
             return Json(items, JsonRequestBehavior.AllowGet);
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        public JsonResult GetJobDetails()
+        {
+            var items = new List<Job>();
+            items = db.Job.Take(6).OrderByDescending(item => item.CreatedAt).ToList();
+            return Json(items, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult DownloadProspectus()
         {
             return File("~/Content/documents/Route.pdf", "application/pdf", "Prospectus.pdf");
@@ -55,6 +64,11 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
         public ActionResult DownloadScholarshipDescription()
         {
             return File("~/Content/documents/Scholarship-Description.pdf", "application/pdf", "Scholarship-Description.pdf");
+        }
+
+        public ActionResult DownloadApplication(string name)
+        {
+            return File("~/Content/documents/"+ name, "application/pdf", name + ".pdf");
         }
     }
 }

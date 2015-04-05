@@ -3,6 +3,27 @@
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .table {
+        margin: 0;
+        padding: 0;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .row {
+        display: table-row;
+    }
+
+    .cell {
+        display: table-cell;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 
 <div class="row">
     <div class="span12">
@@ -50,43 +71,43 @@
                         <th>
                             @Html.DisplayNameFor(model => model.EmailToApply)
                         </th>
-                        <th></th>
+                        <th style="width: 15%"></th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.Title)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.JobReference)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.Department)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.Location)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.MinimumSalary)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.MaximumSalary)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.hours)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.CreatedAt)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.ApplicationForm)
                             </td>
-                            <td>
+                            <td class='cell'>
                                 @Html.DisplayFor(modelItem => item.EmailToApply)
                             </td>
                             <td>
