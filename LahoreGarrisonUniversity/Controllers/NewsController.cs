@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using LahoreGarrisonUniversity.Models;
 
@@ -44,6 +48,21 @@ namespace LahoreGarrisonUniversity.Controllers
         {
             if (ModelState.IsValid)
             {
+                var photo = Request.Files[0];
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    var allowedFileExtensions = new string[] { ".jpg", ".gif", ".png"};
+                    if (!allowedFileExtensions.Contains(photo.FileName.Substring(photo.FileName.LastIndexOf('.'))))
+                    {
+                        ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
+                    }
+                    var fileName = Path.GetFileName(photo.FileName);
+                    var fullPath = "~/Content/FrontEnd/images/news/" + fileName;
+                    photo.SaveAs(Server.MapPath(fullPath));
+                    news.MediaUrl = fullPath.Remove(0,1);
+                }
+                news.CreatedAt = DateTime.Now;
+                news.UserName = User.Identity.Name;
                 db.News.Add(news);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -74,6 +93,21 @@ namespace LahoreGarrisonUniversity.Controllers
         {
             if (ModelState.IsValid)
             {
+                var photo = Request.Files[0];
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    var allowedFileExtensions = new string[] { ".jpg", ".gif", ".png", ".pdf" };
+                    if (!allowedFileExtensions.Contains(photo.FileName.Substring(photo.FileName.LastIndexOf('.'))))
+                    {
+                        ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
+                    }
+                    var fileName = Path.GetFileName(photo.FileName);
+                    var fullPath = "~/Content/FrontEnd/images/news/" + fileName;
+                    photo.SaveAs(Server.MapPath(fullPath));
+                    news.MediaUrl = fullPath.Remove(0, 1);
+                }
+                news.CreatedAt = DateTime.Now;
+                news.UserName = User.Identity.Name;
                 db.Entry(news).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

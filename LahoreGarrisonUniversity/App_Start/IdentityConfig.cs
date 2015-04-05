@@ -103,7 +103,7 @@ namespace LahoreGarrisonUniversity.Models
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     // This example shows you how to create a new database if the Model changes
-    public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
+    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
@@ -201,7 +201,7 @@ namespace LahoreGarrisonUniversity.Models
             initializeFrontEndCourse(context);
             initializeTestimonial(context);
             initializeEvents(context);
-            initializeNews(context);
+            //initializeNews(context);
 
             context.SaveChanges();
         }
@@ -445,80 +445,80 @@ namespace LahoreGarrisonUniversity.Models
                 );
         }
 
-        private static void initializeNews(ApplicationDbContext context)
-        {
-            context.News.Add(
-                new News
-                {
-                    Title = "Addmissions",
-                    Description = "Addmissions Open now",
-                    CreatedAt = DateTime.Now,
-                    MediaUrl = "/Content/FrontEnd/images/news/news-thumb-1.jpg",
-                    UserName = "admin"
-                }
-                );
-            context.News.Add(
-                new News
-                {
-                    Title = "Addmissions",
-                    Description = "Addmissions Open now",
-                    CreatedAt = DateTime.Now,
-                    MediaUrl = "/Content/FrontEnd/images/news/news-thumb-2.jpg",
-                    UserName = "admin"
-                }
-                );
-            context.News.Add(
-                new News
-                {
-                    Title = "Addmissions",
-                    Description = "Addmissions Open now",
-                    CreatedAt = DateTime.Now,
-                    MediaUrl = "/Content/FrontEnd/images/news/news-thumb-3.jpg",
-                    UserName = "admin"
-                }
-                            );
-            context.News.Add(
-                            new News
-                            {
-                                Title = "Addmissions",
-                                Description = "Addmissions Open now",
-                                CreatedAt = DateTime.Now,
-                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-4.jpg",
-                                UserName = "admin"
-                            }
-                            );
-            context.News.Add(
-                            new News
-                            {
-                                Title = "Addmissions",
-                                Description = "Addmissions Open now",
-                                CreatedAt = DateTime.Now,
-                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-5.jpg",
-                                UserName = "admin"
-                            }
-                            );
-            context.News.Add(
-                            new News
-                            {
-                                Title = "Addmissions",
-                                Description = "Addmissions Open now",
-                                CreatedAt = DateTime.Now,
-                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-6.jpg",
-                                UserName = "admin"
-                            }
-                            );
-            context.News.Add(
-                            new News
-                            {
-                                Title = "Addmissions",
-                                Description = "Addmissions Open now",
-                                CreatedAt = DateTime.Now,
-                                MediaUrl = "/Content/FrontEnd/images/news/news-thumb-4.jpg",
-                                UserName = "admin"
-                            }
-                            );
+        //private static void initializeNews(ApplicationDbContext context)
+        //{
+        //    context.News.Add(
+        //        new News
+        //        {
+        //            Title = "Addmissions",
+        //            Description = "Addmissions Open now",
+        //            CreatedAt = DateTime.Now,
+        //            MediaUrl = "",
+        //            UserName = "admin"
+        //        }
+        //        );
+        //    context.News.Add(
+        //        new News
+        //        {
+        //            Title = "Addmissions",
+        //            Description = "Addmissions Open now",
+        //            CreatedAt = DateTime.Now,
+        //            MediaUrl = "/Content/FrontEnd/images/news/news-thumb-2.jpg",
+        //            UserName = "admin"
+        //        }
+        //        );
+        //    context.News.Add(
+        //        new News
+        //        {
+        //            Title = "Addmissions",
+        //            Description = "Addmissions Open now",
+        //            CreatedAt = DateTime.Now,
+        //            MediaUrl = "/Content/FrontEnd/images/news/news-thumb-3.jpg",
+        //            UserName = "admin"
+        //        }
+        //                    );
+        //    context.News.Add(
+        //                    new News
+        //                    {
+        //                        Title = "Addmissions",
+        //                        Description = "Addmissions Open now",
+        //                        CreatedAt = DateTime.Now,
+        //                        MediaUrl = "/Content/FrontEnd/images/news/news-thumb-4.jpg",
+        //                        UserName = "admin"
+        //                    }
+        //                    );
+        //    context.News.Add(
+        //                    new News
+        //                    {
+        //                        Title = "Addmissions",
+        //                        Description = "Addmissions Open now",
+        //                        CreatedAt = DateTime.Now,
+        //                        MediaUrl = "/Content/FrontEnd/images/news/news-thumb-5.jpg",
+        //                        UserName = "admin"
+        //                    }
+        //                    );
+        //    context.News.Add(
+        //                    new News
+        //                    {
+        //                        Title = "Addmissions",
+        //                        Description = "Addmissions Open now",
+        //                        CreatedAt = DateTime.Now,
+        //                        MediaUrl = "/Content/FrontEnd/images/news/news-thumb-6.jpg",
+        //                        UserName = "admin"
+        //                    }
+        //                    );
+        //    context.News.Add(
+        //                    new News
+        //                    {
+        //                        Title = "Addmissions",
+        //                        Description = "Addmissions Open now",
+        //                        CreatedAt = DateTime.Now,
+        //                        MediaUrl = "/Content/FrontEnd/images/news/news-thumb-4.jpg",
+        //                        UserName = "admin"
+        //                    }
+        //                    );
 
-        }
+        //}
 
     }
 

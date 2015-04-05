@@ -10,6 +10,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 using System.Web.Mvc;
 
 namespace LahoreGarrisonUniversity.Models
@@ -22,14 +23,17 @@ namespace LahoreGarrisonUniversity.Models
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [ScaffoldColumn(false)]
         public int Id { get; set; }
-        
+
+        [Required(ErrorMessage = "Title Required!")]
         [DisplayName("Title")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "Description Required!")]
         [DisplayName("Description")]
         public string Description { get; set; }
 
-        [DisplayName("Media Url")]
+        [Required(ErrorMessage = "MediaUrl Required!")]
+        [DisplayName("News Image")]
         public string MediaUrl { get; set; }
 
         [DisplayName("Created At")]

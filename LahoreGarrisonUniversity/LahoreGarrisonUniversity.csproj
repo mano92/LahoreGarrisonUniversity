@@ -720,6 +720,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\FrontEnd\Views\Default\" />
+    <Folder Include="Content\applications\" />
     <Folder Include="Content\FrontEnd\images\bg\" />
     <Folder Include="Content\FrontEnd\images\media\" />
     <Folder Include="Content\FrontEnd\images\social\" />

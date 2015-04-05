@@ -47,6 +47,8 @@
                   new List<Object>{ 
                        new { value = 0 , text = "Computer Science"  },
                        new { value = 1 , text = "Chemistry" },
+                       new { value = 1 , text = "Physics" },
+                       new { value = 1 , text = "Biology" },
                        new { value = 2 , text = "Maths"}
                     },
                   "value",
@@ -84,23 +86,31 @@
         <div class="form-group">
             @Html.LabelFor(model => model.hours, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.hours)
+                @Html.DropDownListFor(model => model.hours, new SelectList(
+                  new List<Object>{
+                       new { value = 0 , text = "Full Time"  },
+                       new { value = 1 , text = "Part Time" }
+                    },
+                  "value",
+                  "text",
+                   2)))
+                @*@Html.EditorFor(model => model.hours)*@
                 @Html.ValidationMessageFor(model => model.hours)
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CreatedAt, new { @Value = DateTime.Now, @disabled = "disabled" })
                 @Html.ValidationMessageFor(model => model.CreatedAt)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.ApplicationForm, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ApplicationForm)
+                @Html.TextBoxFor(model => model.ApplicationForm, new {type="file"})
                 @Html.ValidationMessageFor(model => model.ApplicationForm)
             </div>
         </div>
@@ -108,7 +118,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmailToApply, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailToApply)
+                @Html.TextBoxFor(model => model.EmailToApply, new {type="file"})
                 @Html.ValidationMessageFor(model => model.EmailToApply)
             </div>
         </div>

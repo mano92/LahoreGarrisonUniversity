@@ -1,4 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
@@ -44,6 +47,21 @@ namespace LahoreGarrisonUniversity.Controllers
         {
             if (ModelState.IsValid)
             {
+                var photo = Request.Files[0];
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    var allowedFileExtensions = new string[] {".doc"};
+                    if (!allowedFileExtensions.Contains(photo.FileName.Substring(photo.FileName.LastIndexOf('.'))))
+                    {
+                        ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
+                    }
+                    var fileName = Path.GetFileName(photo.FileName);
+                    var fullPath = "~/Content/applications/" + fileName;
+                    photo.SaveAs(Server.MapPath(fullPath));
+                    job.ApplicationForm = fullPath;
+                }
+                job.CreatedAt = DateTime.Now;
+
                 db.Job.Add(job);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -68,12 +86,33 @@ namespace LahoreGarrisonUniversity.Controllers
         }
 
         // POST: /Jobs/Edit/5
+        /// <summary>
+        /// Edits the specified job.
+        /// </summary>
+        /// <param name="job">The job.</param>
+        /// <returns>Task{ActionResult}.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Job job)
         {
             if (ModelState.IsValid)
             {
+                var photo = Request.Files[0];
+                if (photo != null && photo.ContentLength > 0)
+                {
+                    var allowedFileExtensions = new string[] {".doc" };
+                    if (!allowedFileExtensions.Contains(photo.FileName.Substring(photo.FileName.LastIndexOf('.'))))
+                    {
+                        ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
+                    }
+                    var fileName = Path.GetFileName(photo.FileName);
+                    var fullPath = "~/Content/applications/" + fileName;
+                    photo.SaveAs(Server.MapPath(fullPath));
+                    job.ApplicationForm = fullPath;
+                }
+                job.CreatedAt = DateTime.Now;
+
+
                 db.Entry(job).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
