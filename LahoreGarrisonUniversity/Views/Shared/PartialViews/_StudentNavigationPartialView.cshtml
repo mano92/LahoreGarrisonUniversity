@@ -10,38 +10,6 @@
                 <button class="btn btn-sm mainnav-form-btn"><i class="fa fa-search"></i></button>
             </form>
             <ul class="mainnav-menu">
-                <li class="dropdown active">
-                    <a href="./index.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        Quick Links
-                        <i class="mainnav-caret"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="./dashboard-2.html">
-                                <i class="fa fa-dashboard"></i>
-                                &nbsp;&nbsp;Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./dashboard-3.html">
-                                <i class="fa fa-dashboard"></i>
-                                &nbsp;&nbsp;Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./dashboard-3.html">
-                                <i class="fa fa-dashboard"></i>
-                                &nbsp;&nbsp;Gallery
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./dashboard-3.html">
-                                <i class="fa fa-dashboard"></i>
-                                &nbsp;&nbsp;News
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="dropdown ">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         Academics
@@ -49,21 +17,33 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="./components-validation.html">
-                                <i class="fa fa-check"></i>
-                                &nbsp;&nbsp;Time Table
+                            <a href="@Url.Action("AskToAssign", "AssignCourse")">
+                                <i class="fa fa-ban"></i>
+                                &nbsp;&nbsp;Ask To Assign
                             </a>
                         </li>
                         <li>
-                            <a href="./components-gallery.html">
+                            <a href="@Url.Action("AssignConfirmed", "AssignCourse")">
+                                <i class="fa fa-ban"></i>
+                                &nbsp;&nbsp;Assign Confirmed
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ViewCourseStatus", "AssignCourse")">
+                                <i class="fa fa-ban"></i>
+                                &nbsp;&nbsp;View Course Status
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ViewResult", "ResultEntry")">
                                 <i class="fa fa-picture-o"></i>
-                                &nbsp;&nbsp;Examination
+                                &nbsp;&nbsp;View Result
                             </a>
                         </li>
                         <li>
-                            <a href="./components-charts.html">
-                                <i class="fa fa-bar-chart-o"></i>
-                                &nbsp;&nbsp;Calendar
+                            <a href="@Url.Action("RoomAllocationView", "RoomAllocation")">
+                                <i class="fa fa-ban"></i>
+                                &nbsp;&nbsp;Room Allocation View
                             </a>
                         </li>
                     </ul>
@@ -75,52 +55,13 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="./page-pricing.html">
-                                <i class="fa fa-money"></i>
-                                &nbsp;&nbsp;Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./page-profile.html">
-                                <i class="fa fa-user"></i>
-                                &nbsp;&nbsp;E-mail
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./page-faq.html">
-                                <i class="fa fa-question"></i>
-                                &nbsp;&nbsp;Gallery
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./page-faq.html">
-                                <i class="fa fa-question"></i>
-                                &nbsp;&nbsp;Documents
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./page-faq.html">
+                            <a href="@Url.Action("Index", "Testimonial")">
                                 <i class="fa fa-question"></i>
                                 &nbsp;&nbsp;Testimonials
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown ">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        Data and Reports
-                        <i class="mainnav-caret"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">
-                                <i class="fa fa-ban"></i>
-                                &nbsp;&nbsp;Reports
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
             </ul>
         </nav>
     </div> <!-- /.container -->

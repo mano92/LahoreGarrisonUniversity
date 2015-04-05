@@ -56,7 +56,7 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "/Content/FrontEnd/images/events/" + fileName;
+                    var fullPath = "/Content/events/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
                     @event.MediaUrl = fullPath;
                 }
@@ -101,7 +101,7 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "/Content/FrontEnd/images/events/" + fileName;
+                    var fullPath = "/Content/events/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
                     @event.MediaUrl = fullPath;
                 }

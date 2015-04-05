@@ -57,7 +57,7 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "/Content/FrontEnd/images/news/" + fileName;
+                    var fullPath = "/Content/news/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
                     news.MediaUrl = fullPath;
                 }
