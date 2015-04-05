@@ -1,0 +1,66 @@
+﻿@model LahoreGarrisonUniversity.Models.FrontEndCourse
+
+@{
+    ViewBag.Title = "Course Details";
+}
+
+<div class="page-content">
+    <div class="row page-row">
+        <div class="course-wrapper col-md-8 col-sm-7">
+            <article class="course-item">
+                <p class="featured-image page-row"><img class="img-responsive" src="@Model.ImageUrl" alt=""></p>
+                <div class="page-row box box-border">
+                    <ul class="list-unstyled no-margin-bottom">
+                        <li><strong>Semester:</strong> <em>@Model.Semester</em></li>
+                        <li><strong>Duration: </strong> <em>@Model.Duration</em></li>
+                        <li><strong>Level: </strong> <em>@Model.Level</em></li>
+                        <li><strong>Study Level Location: </strong> <em>@Model.StudentLevel</em></li>
+                    </ul>
+                </div><!--//page-row-->
+                <div class="page-row">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div><!--//page-row-->
+                <div class="tabbed-info page-row">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab">Course structure</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Entry requirements</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Recommended Books</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <ul>
+                                @foreach (var item in @Model.CourseStructure.Split(','))
+                                {
+                                    <li>@item.ToString()</li>
+                                }
+                            </ul>
+
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <ul>
+                                @foreach (var item in @Model.PrerequsiteCourse.Split(','))
+                                {
+                                    <li>@item.ToString()</li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <ul>
+                                @foreach (var item in @Model.RecommendedBooks.Split(','))
+                                {
+                                    <li>@item.ToString()</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--//tabbed-info-->
+            </article><!--//course-item-->
+        </div><!--//course-wrapper-->
+        <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_DownloadProspectus.cshtml")
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/__EnquireAboutUs.cshtml")
+        </aside>
+    </div>
+</div>

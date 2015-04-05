@@ -2,11 +2,12 @@
     ViewBag.Title = "Addmissions - Eligibility Criteria";
 }
 
-    <h3 class="heading-title clearfix">Undergraduate</h3>
-    <div class="page-content">
+
+<div class="page-content">
     <div class="row page-row">
         <div class="faq-wrapper col-md-8 col-sm-7">
             <div class="panel-group" id="accordion">
+                <h3 class="heading-title clearfix">Undergraduate</h3>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -95,24 +96,8 @@
                 </div><!--//panel-->
 
             </div><!--//panel-group-->
-        </div><!--//faq-wrapper-->
-        <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
-            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_DownloadProspectus.cshtml")
-            <!--//widget-->
-            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Testimonial.cshtml")
-            @*<section class="widget has-divider">
-                    <h3 class="title">Why College Green Online</h3>
-                    <p>Donec pulvinar arcu lacus, vel aliquam libero scelerisque a. Cras mi tellus, vulputate eu eleifend at, consectetur fringilla lacus. Nulla ut purus.</p>
-                    <a class="btn btn-theme" href="#"><i class="fa fa-download"></i>Download prospectus</a>
-                </section>*@<!--//widget-->
-        </aside>
-    </div><!--//page-row-->
-</div><!--//page-content-->
-<h3 class="heading-title clearfix">Postgraduate</h3>
-<div class="page-content">
-    <div class="row page-row">
-        <div class="faq-wrapper col-md-8 col-sm-7">
             <div class="panel-group" id="accordion">
+                <h3 class="heading-title clearfix">Postgraduate</h3>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -221,17 +206,16 @@
                         </div><!--//panel-body-->
                     </div><!--//panel-colapse-->
                 </div><!--//panel-->
-
             </div><!--//panel-group-->
-        </div><!--//faq-wrapper-->
+        </div>
         <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_DownloadProspectus.cshtml")
+            <!--//widget-->
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Testimonial.cshtml")
+
             @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_Address.cshtml")
-            @*<section class="widget has-divider">
-                    <h3 class="title">Why College Green Online</h3>
-                    <p>Donec pulvinar arcu lacus, vel aliquam libero scelerisque a. Cras mi tellus, vulputate eu eleifend at, consectetur fringilla lacus. Nulla ut purus.</p>
-                    <a class="btn btn-theme" href="#"><i class="fa fa-download"></i>Download prospectus</a>
-                </section>*@<!--//widget-->
         </aside>
-    </div><!--//page-row-->
-</div><!--//page-content-->
+    </div>
+</div>
+
 

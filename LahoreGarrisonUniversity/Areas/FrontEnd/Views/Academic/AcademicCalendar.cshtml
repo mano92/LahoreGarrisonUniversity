@@ -1,5 +1,60 @@
 ﻿@{
-    ViewBag.Title = "AcademicCalendar";
+    ViewBag.Title = "Academic Calendar 2015";
 }
 
-<h2>Academic Calendar View</h2>
+<div class="page-content">
+    <div class="row page-row">
+        <div class="events-wrapper col-md-8 col-sm-7">
+            <div class="panel panel-theme">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>Commencement of Classes Monday March 09, 2015</li>
+                        <li>Deadline for Payment of the Semester Dues Monday March 16, 2015</li>
+                        <li>Last Date of Applications for Add/Drop of a Course(s) Monday March 16, 2015</li>
+                        <li>Last Date of Applications for Semester Freeze Monday March 16, 2015</li>
+                        <li>Pakistan Day Monday March 23, 2015</li>
+                        <li>Mid Term Examination (after 7 weeks) Monday - Saturday April 20 - 25, 2015</li>
+                        <li>Mid Term Paper Show Wednesday April 28,2015</li>
+                        <li>Labour Day (Holiday as per University Decision) Friday May 01, 2015</li>
+                        <li>Display of Forced Withdrawal List due to shortage of attendance Tuesday June 9, 2015</li>
+                        <li>Last Date of Applications for Withdrawl of Semester/Course(s) Thursday June 11, 2015</li>
+                        <li>End of Classes ** Friday June 12, 2015</li>
+                        <li>Final Term Examination of all Programs (after 7 weeks) Monday - Saturday June 15 - 20, 2015</li>
+                        <li>Comprehensive Test for Final Semesters Wednesday June 24, 2015</li>
+                        <li>Paper Show and Award Lists Submission to Exam Branch Thu-Fri June 25 -26, 2015</li>
+                        <li>Final Result Declaration Thursday July 02, 2015</li>
+                        <li>Summer Vacations As per University Decision</li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-theme">
+                <div class="panel-heading">
+                    <h3 class="panel-title">*Note:</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>Total 8 weeks including mid term and final term exams.</li>
+                        <li>Total no. of lectures are 24 excluding 6 days of mid term and final term exams.</li>
+                        <li>12 Lectures before midterm exams, 12 lectures before final term exams.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-theme">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Language Proficiency</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>The medium of instruction for all degree programs at the university is English, except the language programs other than English (e.g., Arabic, Urdu, Punjabi, Persian, Spanish, Italian, etc.).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+            @Html.Partial("~/Areas/FrontEnd/Views/Shared/Widgets/_LatestNews.cshtml")
+        </aside>
+    </div><!--//page-row-->
+</div>

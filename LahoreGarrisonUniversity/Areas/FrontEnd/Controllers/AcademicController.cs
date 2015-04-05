@@ -17,15 +17,14 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
             return View();
         }
 
-        public ActionResult UnderGraduate()
+        public async Task<ActionResult> UnderGraduate()
         {
-            //var courses = new object();
-            return View();
+            return View(await db.FrontEndCourses.Where(x => x.Level == "Undergraduate").ToListAsync());
         }
 
-        public ActionResult PostGraduate()
+        public async Task<ActionResult> PostGraduate()
         {
-            return View();
+            return View(await db.FrontEndCourses.Where(x => x.Level == "Postgraduate").ToListAsync());
         }
         
         public ActionResult AcademicCalendar()
@@ -38,5 +37,9 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
             return View(await db.FrontEndCourses.ToListAsync());
         }
 
+        public ActionResult CourseDetails(int id)
+        {
+            return View(db.FrontEndCourses.Find(id));
+        }
     }
 }
