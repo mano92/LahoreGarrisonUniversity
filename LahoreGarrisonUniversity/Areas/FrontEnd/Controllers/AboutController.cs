@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using LahoreGarrisonUniversity.Models;
 
@@ -46,9 +47,9 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
             return View();
         }
 
-        public ActionResult JobDetails(int id)
+        public async Task<ActionResult> JobDetails(int id)
         {
-            var item = db.Job.Find(id);
+            var item = await db.Job.FindAsync(id);
             return View(item);
         }
 

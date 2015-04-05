@@ -19,12 +19,12 @@ namespace LahoreGarrisonUniversity.Areas.FrontEnd.Controllers
 
         public async Task<ActionResult> UnderGraduate()
         {
-            return View(await db.FrontEndCourses.Where(x => x.Level == "Undergraduate").ToListAsync());
+            return View(await db.FrontEndCourses.Where(x => x.StudentLevel == "Undergraduate").ToListAsync());
         }
 
         public async Task<ActionResult> PostGraduate()
         {
-            return View(await db.FrontEndCourses.Where(x => x.Level == "Postgraduate").ToListAsync());
+            return View(await db.FrontEndCourses.Where(x => x.StudentLevel == "Postgraduate").ToListAsync());
         }
         
         public ActionResult AcademicCalendar()

@@ -57,9 +57,9 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "~/Content/FrontEnd/images/news/" + fileName;
+                    var fullPath = "/Content/FrontEnd/images/news/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
-                    news.MediaUrl = fullPath.Remove(0,1);
+                    news.MediaUrl = fullPath;
                 }
                 news.CreatedAt = DateTime.Now;
                 news.UserName = User.Identity.Name;
@@ -102,9 +102,9 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "~/Content/FrontEnd/images/news/" + fileName;
+                    var fullPath = "/Content/FrontEnd/images/news/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
-                    news.MediaUrl = fullPath.Remove(0, 1);
+                    news.MediaUrl = fullPath;
                 }
                 news.CreatedAt = DateTime.Now;
                 news.UserName = User.Identity.Name;

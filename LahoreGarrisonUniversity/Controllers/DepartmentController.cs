@@ -48,7 +48,7 @@ namespace LahoreGarrisonUniversity.Controllers
             {
                 db.Departments.Add(department);
                 db.SaveChanges();
-                TempData["success"] = "Department Added";
+                TempData["success"] = "Department Added By Name: " + department.Name;
                 return RedirectToAction("Create");
             }
 

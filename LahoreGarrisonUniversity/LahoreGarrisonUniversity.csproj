@@ -239,6 +239,16 @@
     <Content Include="Content\FrontEnd\images\gallery\gallery-thumb-7.jpg" />
     <Content Include="Content\FrontEnd\images\gallery\gallery-thumb-8.jpg" />
     <Content Include="Content\FrontEnd\images\gallery\gallery-thumb-9.jpg" />
+    <Content Include="Content\FrontEnd\images\library\art.jpg" />
+    <Content Include="Content\FrontEnd\images\library\bds.jpg" />
+    <Content Include="Content\FrontEnd\images\library\bus.jpg" />
+    <Content Include="Content\FrontEnd\images\library\cafe.jpg" />
+    <Content Include="Content\FrontEnd\images\library\it.jpg" />
+    <Content Include="Content\FrontEnd\images\library\lab1.jpg" />
+    <Content Include="Content\FrontEnd\images\library\lab2.jpg" />
+    <Content Include="Content\FrontEnd\images\library\library1.jpg" />
+    <Content Include="Content\FrontEnd\images\library\library2.png" />
+    <Content Include="Content\FrontEnd\images\library\sports.jpg" />
     <Content Include="Content\FrontEnd\images\logo.png" />
     <Content Include="Content\FrontEnd\images\logo123.png" />
     <Content Include="Content\FrontEnd\images\misc\bootstrap-glyphicons-screenshot.png" />

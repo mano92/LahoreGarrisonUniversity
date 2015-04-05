@@ -56,7 +56,7 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "~/Content/applications/" + fileName;
+                    var fullPath = "/Content/applications/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
                     job.ApplicationForm = fullPath;
                 }
@@ -106,7 +106,7 @@ namespace LahoreGarrisonUniversity.Controllers
                         ModelState.AddModelError("File", "Please file of type: " + string.Join(", ", allowedFileExtensions));
                     }
                     var fileName = Path.GetFileName(photo.FileName);
-                    var fullPath = "~/Content/applications/" + fileName;
+                    var fullPath = "/Content/applications/" + fileName;
                     photo.SaveAs(Server.MapPath(fullPath));
                     job.ApplicationForm = fullPath;
                 }
