@@ -466,6 +466,7 @@
     <Content Include="Areas\FrontEnd\Views\About\JobDetails.cshtml" />
     <Content Include="Areas\FrontEnd\Views\Shared\Widgets\_LatestNews.cshtml" />
     <Content Include="Areas\FrontEnd\Views\Academic\CourseDetails.cshtml" />
+    <Content Include="Areas\FrontEnd\Views\Home\NewsDetails.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\FrontEnd\admin\bootstrap-min.js" />
     <Content Include="Scripts\FrontEnd\admin\bootstrap.js" />

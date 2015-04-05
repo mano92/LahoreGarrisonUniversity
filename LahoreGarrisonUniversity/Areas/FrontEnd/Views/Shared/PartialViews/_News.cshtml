@@ -22,18 +22,18 @@
                 if (index < 3) {
                     $('#active-item').append(
                     '<div class="col-md-4 news-item">' +
-                    '<h2 class="title"><a href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })' + item.Id + '">' + item.Title + '</a></h2>' +
+                    '<h2 class="title"><a href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })/' + item.Id + '">' + item.Title + '</a></h2>' +
                     '<img class="thumb" src="' + item.MediaUrl + '" alt="">' +
                     '<p>' + item.Description + '</p>' +
-                    '<a class="read-more" href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })' + item.Id + '">Read more<i class="fa fa-chevron-right"></i></a>' +
+                    '<a class="read-more" href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })/' + item.Id + '">Read more<i class="fa fa-chevron-right"></i></a>' +
                     '</div>');
                 } else {
                     $('#nonactive-item').append(
                     '<div class="col-md-4 news-item">' +
-                    '<h2 class="title"><a href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })' + item.Id + '">' + item.Title + '</a></h2>' +
+                    '<h2 class="title"><a href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })/' + item.Id + '">' + item.Title + '</a></h2>' +
                     '<img class="thumb" src="' + item.MediaUrl + '" alt="">' +
                     '<p>' + item.Description + '</p>' +
-                    '<a class="read-more" href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })' + item.Id + '">Read more<i class="fa fa-chevron-right"></i></a>' +
+                    '<a class="read-more" href="@Url.Action("NewsDetails", "Home", new { id = string.Empty })/' + item.Id + '">Read more<i class="fa fa-chevron-right"></i></a>' +
                     '</div>');
                 }
             });
